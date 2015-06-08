@@ -1,0 +1,31 @@
+<table>
+<tr>
+      <td>Posted by:</td>
+      <td><%= post.user.fullname %></td>
+      <td>Title:</td>
+      <td><%= post.title %></td>
+      <td>Post: </td>
+      <td><%= post.content %></td>
+    </tr>
+</table><br>
+<% @comments = Comment.where(post_id: post.id) %>
+<div class = <%= post.id %>>
+<% @comments.each do |comment| %>
+  <%= render :partial => 'comments/comment',	:locals => { comment: comment }%>
+ 	<% if false %>
+		<%= render comment %>
+		<%= render 'comments/comment', comment: comment %>
+	<% end %>
+<% end %>
+</div>
+<%= form_for(:comment, url: comments_path, remote: true) do |f| %>
+
+  <%= f.label :newcomment %>
+  <%= f.text_field :newcomment %>
+  <%= f.text_field :id, :value => post.id ,:style => "display:none" %>
+  <%= f.submit "comment" %>
+
+<% end %>
+
+<br>
+
