@@ -6,9 +6,12 @@ class CommentsController < ApplicationController
 		userid = getid
 		@comment=Comment.new(content: comment,post_id: id,user_id: userid)
 		respond_to do |format|
-			@comment.save
-			format.html { redirect_to posts_path }
-			format.js	{}
+			if	@comment.save
+				format.html { redirect_to posts_path }
+				format.js	{}
+			else
+				redirect_to posts_path
+			end
 		end
 	end
 end

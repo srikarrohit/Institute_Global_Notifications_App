@@ -8,11 +8,13 @@ class PostsController < ApplicationController
 	def create
 		post = params[:post][:content]
 		title = params[:post][:title]
-		@posts = Post.new(content: post, title: title)
-		@posts.user_id = getid
-		@posts.save
-		redirect_to posts_path
-	#	render 'new'
+		@post = Post.new(content: post, title: title)
+		@post.user_id = getid
+		if @post.save
+			redirect_to posts_path
+		else
+			render 'new'
+		end
 	end
 	def show
 	#	@user = User.find_by(id: id)
