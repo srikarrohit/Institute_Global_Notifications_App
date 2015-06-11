@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606164702) do
+ActiveRecord::Schema.define(version: 20150611122544) do
 
   create_table "admins", force: :cascade do |t|
     t.integer  "adminid",    limit: 4
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20150606164702) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "post_id",    limit: 4
+    t.integer  "user_id",    limit: 4
+    t.text     "message",    limit: 65535
+    t.boolean  "checked",    limit: 1,     default: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "notifications", ["post_id"], name: "index_notifications_on_post_id", using: :btree
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.text     "content",    limit: 65535

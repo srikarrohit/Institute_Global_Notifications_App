@@ -11,6 +11,11 @@ class PostsController < ApplicationController
 		@post = Post.new(content: post, title: title)
 		@post.user_id = getid
 		if @post.save
+			@notif = Notification.new
+			@notif.user_id = getid
+			@notif.post_id = @post.id
+			@notif.message = @post.user.fullname + " " + "Posted"
+			@notif.save
 			redirect_to posts_path
 		else
 			render 'new'
