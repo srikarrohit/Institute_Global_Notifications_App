@@ -6,7 +6,13 @@
 	
 	<%= f.label :content %>
 	<%= f.text_field :content %>
-		
+	
+	<% @cats.each do |cat| %>
+    <%= f.radio_button cat.id %>
+    <%= f.label :cat_id, cat.category %>
+    <br>
+  <% end %>
+
 	<%= f.submit "Post" %>
 <% end %>
 <br>

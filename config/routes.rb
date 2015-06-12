@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+#  get 'cats/index'
+
+#  get 'cats/new'
+
   root 'staticpages#home'
 
 	get 'login' => 'sessions#new'
@@ -6,12 +10,14 @@ Rails.application.routes.draw do
 	delete 'logout' => 'sessions#destroy'
 #	get 'newpost'  => 'posts#new'
 #	post 'newpost' => 'posts#create'
-		
+	get 'cats' => 'cats#index'
+	post 'cats' => 'cats#create'
 #	get 'posts' => 'posts#show'
 #	post 'comments' => 'comments#create'
 #	post 'posted' => 'posts#create'
 	resources :posts 
 	resources :comments
+#	resources :cats
 #	resources :comments
  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

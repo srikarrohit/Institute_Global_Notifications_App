@@ -3,8 +3,9 @@ class CreateNotifications < ActiveRecord::Migration
     create_table :notifications do |t|
       t.references :post, index: true
       t.references :user, index: true
+			t.references :cat, index: true
 			t.text :message
-			t.boolean :checked, default: false
+#			t.boolean :checked, default: false
 #			t.integer :notifreceiver	
 	
       t.timestamps null: false

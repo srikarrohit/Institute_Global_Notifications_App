@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
 	has_many :posts, dependent: :destroy
 	has_many :comments
 	has_many :notifications
+	has_many :cats
 end

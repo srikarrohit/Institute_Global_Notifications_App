@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  cat1: false
+  cat2: false
+  cat3: false
+  cat4: false
+  cat5: false
+
+two:
+  user_id: 
+  cat1: false
+  cat2: false
+  cat3: false
+  cat4: false
+  cat5: false
