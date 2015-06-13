@@ -50,29 +50,23 @@ ActiveRecord::Schema.define(version: 20150612154831) do
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
-    t.text     "content",         limit: 65535
-    t.text     "title",           limit: 65535
-    t.integer  "user_id",         limit: 4
-    t.integer  "notification_id", limit: 4
-    t.integer  "cat_id",          limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.text     "content",    limit: 65535
+    t.text     "title",      limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.integer  "cat_id",     limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "posts", ["cat_id"], name: "index_posts_on_cat_id", using: :btree
-  add_index "posts", ["notification_id"], name: "index_posts_on_notification_id", using: :btree
   add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "usercats", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
-    t.boolean  "cat1",       limit: 1
-    t.boolean  "cat2",       limit: 1
-    t.boolean  "cat3",       limit: 1
-    t.boolean  "cat4",       limit: 1
-    t.boolean  "cat5",       limit: 1
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.text     "categories", limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "usercats", ["user_id"], name: "index_usercats_on_user_id", using: :btree

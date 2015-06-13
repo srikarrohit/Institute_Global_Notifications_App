@@ -1,6 +1,6 @@
 <%= form_for(:category, url: cats_path, method: :post) do |f| %>	
 	<% @cats.each do |cat| %>
-		<%= f.check_box cat.id %>
+		<%= f.check_box cat.id ,{},cat.id,nil%>
 		<%= f.label :id, cat.category %>
 		<br>
 	<% end %>

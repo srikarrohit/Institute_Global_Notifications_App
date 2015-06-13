@@ -3,15 +3,11 @@
 
 	<%= f.label :title %>
 	<%= f.text_field :title %>
-	
+	<br>
 	<%= f.label :content %>
 	<%= f.text_field :content %>
-	
-	<% @cats.each do |cat| %>
-    <%= f.radio_button cat.id %>
-    <%= f.label :cat_id, cat.category %>
-    <br>
-  <% end %>
+	<br>
+	<%= f.collection_select(:cat_id,@cats,:id, :category) %>
 
 	<%= f.submit "Post" %>
 <% end %>

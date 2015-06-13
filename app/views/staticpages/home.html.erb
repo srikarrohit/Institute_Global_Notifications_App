@@ -12,6 +12,26 @@
 <br>
 <ul class="notifs">
 <% if logged_in? %>
+	<% usercat= Usercat.find_by(user_id: current_user.id) %>
+	<% if !usercat.nil? %>
+		<% c=usercat.categories %>
+		<% c=c.split(',') %>
+		<% c.map!{ |cat| cat.to_i } %>
+				<% @notifs.each do |notif| %>
+					<% if current_user.id != notif.user_id %>
+						<% c.each do |catid| %>
+							<% if notif.cat_id == catid %>
+								<% post=notif.post %>
+								<% userid=getid %>
+								<% li_id=[getid,notif.id] %>
+								<% li_id=li_id.join %>
+								<% notif.save %>
+								<li id=<%= li_id %>><%= link_to notif.message, post_path(post) %></li>
+							<% end %>
+						<% end %>
+					<% end %>
+				<% end %>
+	<% else %>
 		<% @notifs.each do |notif| %>
 			<% if current_user.id != notif.user_id %>
 				<% post=notif.post %>
@@ -22,5 +42,6 @@
 				<li id=<%= li_id %>><%= link_to notif.message, post_path(post) %></li>
 			<% end %>
 		<% end %>
+	<% end %>
 <% end %>
 </ul>

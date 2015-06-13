@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.text :content
 			t.text :title
       t.references :user, index: true
-			t.references :notification, index:true
+#			t.references :notification, index:true
 			t.references :cat, index:true
 
       t.timestamps null: false

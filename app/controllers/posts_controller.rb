@@ -9,12 +9,14 @@ class PostsController < ApplicationController
 	def create
 		post = params[:post][:content]
 		title = params[:post][:title]
-		@post = Post.new(content: post, title: title)
+		categoryid = params[:post][:cat_id]
+		@post = Post.new(content: post, title: title, cat_id: categoryid)
 		@post.user_id = getid
 		if @post.save
 			@notif = Notification.new
 			@notif.user_id = getid
 			@notif.post_id = @post.id
+			@notif.cat_id = @post.cat_id
 			@notif.message = @post.user.fullname + " " + "Posted"
 			@notif.save
 			redirect_to posts_path
