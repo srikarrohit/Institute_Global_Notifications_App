@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150612154831) do
   create_table "usercats", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.text     "categories", limit: 65535
+    t.text     "notifids",   limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end

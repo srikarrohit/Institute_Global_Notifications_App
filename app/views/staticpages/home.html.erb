@@ -14,13 +14,14 @@
 <% if logged_in? %>
 	<% usercat= Usercat.find_by(user_id: current_user.id) %>
 	<% if !usercat.nil? %>
-		<% c=usercat.categories %>
-		<% c=c.split(',') %>
-		<% c.map!{ |cat| cat.to_i } %>
+		<% notifs=usercat.notifids %>
+		<% if !notifs.nil? %>
+		<% notifs=notifs.split(',') %>
+		<% notifs.map!{ |notif| notif.to_i } %>
 				<% @notifs.each do |notif| %>
 					<% if current_user.id != notif.user_id %>
-						<% c.each do |catid| %>
-							<% if notif.cat_id == catid %>
+						<% notifs.each do |n| %>
+							<% if notif.id == n %>
 								<% post=notif.post %>
 								<% userid=getid %>
 								<% li_id=[getid,notif.id] %>
@@ -31,6 +32,7 @@
 						<% end %>
 					<% end %>
 				<% end %>
+		<% end %>
 	<% else %>
 		<% @notifs.each do |notif| %>
 			<% if current_user.id != notif.user_id %>
