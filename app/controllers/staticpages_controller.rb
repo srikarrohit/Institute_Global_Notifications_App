@@ -1,5 +1,8 @@
 class StaticpagesController < ApplicationController
   def home
 		@notifs= Notification.all
-  end
+		if logged_in?
+			@usercat= Usercat.find_by(user_id: current_user.id)
+		end
+	end
 end
