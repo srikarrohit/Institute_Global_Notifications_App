@@ -1,0 +1,28 @@
+<div class="login container-fluid">
+<%= form_for(:session, url: login_path ) do |f| %>
+<div class="panel col-md-offset-3">
+<!--<div class="panel-heading">
+<div class="sup">
+	Sign in with your LDAP account
+</div>
+</div>-->
+<div class="panel-body">
+<table>
+<tbody>
+	<div class="input-group">
+	<tr>
+  <td><label>Roll Number: </label></td><td><%= f.text_field  :roll_no, placeholder: "Roll no",:class=>"form-control" %></td>
+	</tr>
+	<tr>
+  <td><label>Password: </label></td>
+  <td><%= f.password_field :password, placeholder: "Password",:class=>"form-control" %></td>
+	</tr>
+	</div>
+</div>
+  <tr><td><%= f.submit "Sign in", :class=>"btn"%></td></tr>
+</div>
+</tbody>
+</table>
+</div>
+<% end %>
+</div>

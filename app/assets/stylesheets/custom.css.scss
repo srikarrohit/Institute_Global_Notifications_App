@@ -1,0 +1,55 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$coolorange: #f39c12;
+
+.navbar
+{
+	background-color: $coolorange!important;
+}
+#logo
+{
+	color:white;
+	font-size:20px;
+	position: absolute;
+	top:10px;
+}
+td
+{
+padding: 10px;
+}
+.panel-heading
+{
+	background-color: $coolorange!important;
+	color:white!important;
+	border-radius:0px;
+	font-size:15px;
+//	border-color:none!important;
+}
+.panel
+{
+border-radius:0px;
+position:absolute;
+top:150px;
+height:230px!important;
+border:1px solid $coolorange;
+margin-left:0%;
+}
+.panel-body
+{
+//border:1px solid black;
+}
+.btn
+{
+background-color:$coolorange;
+color:white;
+border:2px solid $coolorange!important;
+}
+table
+{
+margin-top:15px;
+}
+.sup
+{
+margin-left:14%;
+}
