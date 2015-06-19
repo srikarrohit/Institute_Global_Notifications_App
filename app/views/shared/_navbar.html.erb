@@ -5,8 +5,22 @@
 			<%= link_to "Notification Portal", root_path, id: "logo" %>
 		</div>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
-      </ul>
+			<% if logged_in? %>
+      	<ul class="nav navbar-nav navbar-right">
+					<li><%= link_to "All Posts", posts_path %></li>
+					<% if admin? %>
+  					<li><%= link_to "New Post", new_post_path %></li>
+					<% end %>
+					<li class="dropdown">
+ 						<a href="#" class="dropdown-toggle" data-toggle ="dropdown" role="button" ><%= current_user.fullname %></a>
+						<ul class="dropdown-menu">
+							<li><%= link_to "Profile" %></li>
+							<li><%= link_to "Categories",cats_path %></li>
+							<li><%= link_to "Log out",logout_path,:method => :delete %></li>
+						</ul>
+					</li>
+      	</ul>
+			<% end %>
     </nav>
   </div>
 </header>

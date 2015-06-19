@@ -1,11 +1,4 @@
-<% if logged_in? %>
-	<h2><%= current_user.fullname %></h2>
-	<%= link_to "Log out", logout_path, method: "delete" %><br>
-	<% if admin? %>
-	<%= link_to "New Post", new_post_path %><br>
-	<% end %>
-	<%= link_to "All Posts", posts_path %>
-<% else %>
+<% if !logged_in? %>
 	<div class="container">
 	<%= render 'shared/login' %>
 	</div>
@@ -32,7 +25,7 @@
 	<% end %>
 <% end %>
 </ul>
-<% if false %>
+<% if true %>
 <%= javascript_tag do %>
 setTimeout(function(){
    window.location.reload(1);
