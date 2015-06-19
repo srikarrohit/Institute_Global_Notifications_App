@@ -1,8 +1,14 @@
-<%= form_for(:category, url: cats_path, method: :post) do |f| %>	
+<div class="container-fluid cats">
+<div class="row">
+<%= form_for(:category, url: cats_path, method: :post) do |f| %>
 	<% @cats.each do |cat| %>
+		<div class="col-md-3">
 		<%= f.check_box cat.id ,{},cat.id,nil%>
-		<%= f.label :id, cat.category %>
-		<br>
+		<div class="categs"><%= image_tag(cat.image, :width=>"100", :height=>"100") %></div>
+		</div>
 	<% end %>
+</div>
+</div>
+	<br>
 	<%= f.submit "Save" %>
 <% end %>

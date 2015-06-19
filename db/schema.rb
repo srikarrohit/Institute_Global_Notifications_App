@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150612154831) do
 
   create_table "cats", force: :cascade do |t|
     t.text     "category",   limit: 65535
+    t.text     "image",      limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
