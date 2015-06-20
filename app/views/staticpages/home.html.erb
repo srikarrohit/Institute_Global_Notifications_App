@@ -19,13 +19,15 @@
 				<% li_id=[getid,notif.id] %>
 				<% li_id=li_id.join %>
 				<% notif.save %>
-				<li id=<%= li_id %>><%= link_to notif.message, post_path(post) %></li>
+				< div class="panel">
+					<li id=<%= li_id %>><%= link_to notif.message, post_path(post) %></li>
+				</div>
 			<% end %>
 		<% end %>
 	<% end %>
 <% end %>
 </ul>
-<% if true %>
+<% if false %>
 <%= javascript_tag do %>
 setTimeout(function(){
    window.location.reload(1);

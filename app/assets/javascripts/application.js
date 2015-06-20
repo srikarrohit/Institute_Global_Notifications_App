@@ -11,7 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
+//= require jquery-ui
 //= require bootstrap-sprockets
+//= require bootsy
+//= require turbolinks
 //= require_tree .
+$(function() {
+  $("#post_fromdate").datepicker();
+	$("#post_todate").datepicker();
+});

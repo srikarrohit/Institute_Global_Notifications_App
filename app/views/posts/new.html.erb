@@ -1,15 +1,28 @@
+<div class="container-fluid postcontainer">
 <%= form_for(@post) do |f| %>
 	<%= render 'shared/error_messages' %>
 
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 	<br>
+	<%= f.label :fromdate %>
+	<%= f.text_field :fromdate %>
+	<%= f.label :todate %>
+  <%= f.text_field :todate %>
+  <br>
+	<%= f.label :time %>
+  <%= f.text_field :time %>
+	<br>
+	<%= f.label :location %>
+  <%= f.text_field :location %>
+  <br>
 	<%= f.label :content %>
-	<%= f.text_field :content %>
+	<%= f.bootsy_area :content,class: "form-control"  %>
 	<br>
 	<%= f.collection_select(:cat_id,@cats,:id, :category) %>
 
 	<%= f.submit "Post" %>
 <% end %>
 <br>
+</div>
 <%= link_to "Back", root_path %>

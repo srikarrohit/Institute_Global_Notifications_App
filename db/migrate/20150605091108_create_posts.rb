@@ -3,6 +3,10 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.text :content
 			t.text :title
+			t.date :fromdate, :null => :true
+			t.date :todate, :null =>  :true
+			t.text :location, :null => :true
+			t.time :time, :null  => :true
       t.references :user, index: true
 #			t.references :notification, index:true
 			t.references :cat, index:true

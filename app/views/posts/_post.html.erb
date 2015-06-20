@@ -5,7 +5,7 @@
       <td>Title:</td>
       <td><%= post.title %></td>
       <td>Post: </td>
-      <td><%= post.content %></td>
+      <td><%= simple_format post.content %></td>
     </tr>
 </table><br>
 <% @comments = Comment.where(post_id: post.id) %>

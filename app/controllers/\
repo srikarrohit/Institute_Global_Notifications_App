@@ -1,5 +1,0 @@
-<% @count = 0 %>
-<% @cats.each do |cat| %>
-	<%= check_box_tag(:id) %>
-	<%= label_tag(:id, cat) %>
-<% end %>

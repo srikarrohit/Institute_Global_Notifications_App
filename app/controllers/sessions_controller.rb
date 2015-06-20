@@ -45,8 +45,12 @@ class SessionsController < ApplicationController
 			end
 		end
 	end
+
 	def destroy
+		#raise log_out.inspect
+	#	render root_path
 		log_out
-		redirect_to root_path
+		redirect_to root_url
 	end
+
 end
