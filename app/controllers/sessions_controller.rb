@@ -50,7 +50,7 @@ class SessionsController < ApplicationController
 		#raise log_out.inspect
 	#	render root_path
 		log_out
-		redirect_to root_url
+		redirect_to root_path
 	end
 
 end

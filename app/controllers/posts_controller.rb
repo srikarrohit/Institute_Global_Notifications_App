@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 	@cats = Cat.all
 	end
 	def create
+		@cats=Cat.all#when the form is submitted and goes to this actio, @cats is no more a variable provided by the controller so need to call again
 		post = params[:post][:content]
 		title = params[:post][:title]
 		categoryid = params[:post][:cat_id]

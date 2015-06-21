@@ -17,11 +17,8 @@
 				<% post=notif.post %>
 				<% userid=getid %>
 				<% li_id=[getid,notif.id] %>
-				<% li_id=li_id.join %>
-				<% notif.save %>
-				< div class="panel">
-					<li id=<%= li_id %>><%= link_to notif.message, post_path(post) %></li>
-				</div>
+				<% li_id=li_id.join %>	
+				<li id=<%= li_id %>><%= link_to notif.message, post_path(post) %></li>
 			<% end %>
 		<% end %>
 	<% end %>

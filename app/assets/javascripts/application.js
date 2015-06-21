@@ -12,11 +12,13 @@
 //
 //= require jquery
 //= require jquery-ui
+//= require jquery.turbolinks
 //= require bootstrap-sprockets
+//= require jquery-ui-timepicker-addon
 //= require bootsy
-//= require turbolinks
 //= require_tree .
 $(function() {
   $("#post_fromdate").datepicker();
 	$("#post_todate").datepicker();
+	$("#post_time").timepicker();
 });
