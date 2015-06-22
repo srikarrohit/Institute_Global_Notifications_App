@@ -1,6 +1,8 @@
 class CatsController < ApplicationController
   def index
 		@cats=Cat.all
+		@check=Usercat.find_by(user_id: current_user.id).categories
+		#raise @check.inspect
   end
 	def create
 		cat1= params[:category]["1"]
