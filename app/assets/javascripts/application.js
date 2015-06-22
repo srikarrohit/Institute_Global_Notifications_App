@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require jquery-ui
+//= require jquery_ujs
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery-ui-timepicker-addon
@@ -22,5 +22,17 @@ $(function() {
   $("#post_fromdate").datepicker();
 	$("#post_todate").datepicker();
 	$("#post_date").datepicker();
-	$("#post_time").timepicker();
+	$("#post_time").timepicker();	
+});
+$(document).ready(function(){
+$(".dtype").change(function(){
+if($("#multi").attr("checked")){
+  $(".dates").css("display","block");
+  $(".date").css("display","none");
+}
+else if($("#single").attr("checked")){
+  $(".date").css("display","block");
+  $(".dates").css("display","none");
+}
+});
 });

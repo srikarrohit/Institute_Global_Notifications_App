@@ -1,3 +1,4 @@
+<%= javascript_include_tag "posts" %>
 <div class="container-fluid postcontainer">
 <%= form_for(@post) do |f| %>
 	<%= render 'shared/error_messages' %>
@@ -9,15 +10,21 @@
 	<br>
 	<div class="row">
 	<div class="col-md-2">
+		<input type="radio" id="multi" name="dtype" class="dtype" value="1">Multiple day event<br>
+		<input type="radio" id="single" name="dtype" class="dtype" value="0">Single date event
+	</div>
+	</div>
+	<br>
+	<div class="row">
+	<div class="dates" style="display:none;">
+	<div class="col-md-2">
 	<%= f.text_field :fromdate, :placeholder => "From Date", class: "form-control small" ,:autocomplete => :off%>
 	</div>
 	<div class="col-md-2">
   <%= f.text_field :todate, :placeholder => "To Date",class: "form-control small" ,:autocomplete => :off%>
 	</div>
-	<div class="or col-md-1">
-	or
 	</div>
-	<div class="col-md-2">
+	<div class="col-md-2 date" style="display:none;">
   <%= f.text_field :date, :placeholder => "Date",class: "form-control small" ,:autocomplete => :off %>
 	</div>
 	</div>
@@ -43,3 +50,4 @@
 <% end %>
 <br>
 </div>
+
