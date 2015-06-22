@@ -1,14 +1,25 @@
 <div class="container-fluid cats">
 <div class="row">
+
+<%= content_for :title do %>
+  Preferences
+<% end %>
+
 <%= form_for(:category, url: cats_path, method: :post) do |f| %>
-	<% @cats.each do |cat| %>
-		<div class="col-md-3">
-		<%= f.check_box cat.id ,{},cat.id,nil%>
-		<div class="categs"><%= image_tag(cat.image, :width=>"100", :height=>"100") %></div>
-		</div>
-	<% end %>
-	<%= f.submit "Save" %>
+<% for cat in @cats %>
+<p>
+	<%=f.label cat.category %><br>
+	<%=check_box_tag   "category[#{cat.id}]" ,cat.id,@check.include?(cat.id.to_s) %>
+
+</p>
+<%end %>
+<%= f.submit :update %>
 <% end %>
 </div>
 </div>
 	<br>
+
+
+
+
+
