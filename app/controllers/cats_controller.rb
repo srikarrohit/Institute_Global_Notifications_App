@@ -8,12 +8,19 @@ class CatsController < ApplicationController
 		#raise @check.inspect
   end
 	def create
-		cat1= params[:category]["1"]
-		cat2= params[:category]["2"]
-		cat3= params[:category]["3"]
-		cat4= params[:category]["4"]
-		cat5= params[:category]["5"]
-		cats=[cat1,cat2,cat3,cat4,cat5]
+		p=params[:category]
+		if !p.nil?
+			l= params[:category].length
+			i=0
+			cats=Array.new
+			while i<20 do
+				i+=1
+				cat=params[:category][i.to_s]
+				cats.push cat
+			end
+		else
+      cats=Array.new
+    end
 		cats.compact!
 		cats=cats.join(',')
 		user=User.find_by(id: getid)
