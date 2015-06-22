@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require jquery-ui
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
@@ -20,5 +21,6 @@
 $(function() {
   $("#post_fromdate").datepicker();
 	$("#post_todate").datepicker();
+	$("#post_date").datepicker();
 	$("#post_time").timepicker();
 });

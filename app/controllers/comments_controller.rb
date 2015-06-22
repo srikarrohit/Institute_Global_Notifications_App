@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-#	skip_before_filter :verify_authenticity_token, :only => :create
+	skip_before_filter :verify_authenticity_token, :only => :create
 	def create
 		comment = params[:comment][:newcomment]
 		id = params[:comment][:id]

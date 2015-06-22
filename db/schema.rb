@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150620114157) do
     t.text     "title",      limit: 65535
     t.date     "fromdate"
     t.date     "todate"
+    t.date     "date"
     t.text     "location",   limit: 65535
     t.time     "time"
     t.integer  "user_id",    limit: 4

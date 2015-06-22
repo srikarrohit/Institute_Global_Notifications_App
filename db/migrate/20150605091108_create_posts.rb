@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
 			t.text :title
 			t.date :fromdate, :null => :true
 			t.date :todate, :null =>  :true
+			t.date :date, :null =>  :true
 			t.text :location, :null => :true
 			t.time :time, :null  => :true
       t.references :user, index: true

@@ -11,7 +11,12 @@ class PostsController < ApplicationController
 		post = params[:post][:content]
 		title = params[:post][:title]
 		categoryid = params[:post][:cat_id]
-		@post = Post.new(content: post, title: title, cat_id: categoryid)
+		fromdate=params[:post][:fromdate]
+		todate=params[:post][:todate]
+		date=params[:post][:date]
+		time=params[:post][:time]
+		location=params[:post][:location]
+		@post = Post.new(content: post, title: title, cat_id: categoryid,fromdate: fromdate, todate: todate, date: date, time: time, location: location)
 		@post.user_id = getid
 		if @post.save
 			@notif = Notification.new

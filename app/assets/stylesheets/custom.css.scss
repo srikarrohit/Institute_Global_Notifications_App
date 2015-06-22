@@ -10,6 +10,7 @@ $coolorange: #f39c12;
 .navcontainer
 {
 height:60px;
+
 }
 #logo
 {
@@ -22,15 +23,15 @@ td
 {
 padding: 10px;
 }
-.panel-heading
-{
-	background-color: $coolorange!important;
-	color:white!important;
-	border-radius:0px;
-	font-size:15px;
+//.panel-heading
+//{
+//	background-color: $coolorange!important;
+//	color:white!important;
+//	border-radius:0px;
+//	font-size:15px;
 //	border-color:none!important;
-}
-.panel
+//}
+.sbox
 {
 border-radius:0px;
 position:absolute;
@@ -39,7 +40,7 @@ height:230px!important;
 border:1px solid $coolorange;
 margin-left:0%;
 }
-.panel-body
+.sbody
 {
 //border:1px solid black;
 }
@@ -72,3 +73,49 @@ padding:5px;
 {
 background-color:$coolorange!important;
 }
+.or
+{
+width:0px!important;
+text-align:center;
+padding-left:0px;
+padding-top:6px;
+}
+.allposts
+{}
+//d
+.post-head
+{
+border-bottom: 1px solid #ddd;
+min-height:20px!important;
+padding-bottom:10px!important;
+}
+.post-head>h1
+{
+margin-bottom:2px;
+}
+.post-body
+{
+border-radius:5px;
+//border-bottom-right-radius:5px;
+//border-top-right-radius:5px;
+background-color:#f9f9f9;
+min-height:300px!important;
+border:1px solid #ddd;
+padding-top:15px;
+font-family:"Times New Roman", Times, serif;
+font-size:20px;
+}
+.category
+{
+margin-top:30px;
+}
+.commentcont
+{
+font-family:"Times New Roman", Times, serif;
+font-size:15px;
+border:1px solid #ddd;
+border-radius:5px;
+padding:10px;
+margin-bottom:10px;
+}
+
