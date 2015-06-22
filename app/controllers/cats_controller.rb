@@ -1,7 +1,10 @@
 class CatsController < ApplicationController
   def index
 		@cats=Cat.all
-		@check=Usercat.find_by(user_id: current_user.id).categories
+		u=Usercat.find_by(user_id: getid)
+		if !u.nil?#added this to correct it check what u want
+			@check=u.categories
+		end
 		#raise @check.inspect
   end
 	def create
