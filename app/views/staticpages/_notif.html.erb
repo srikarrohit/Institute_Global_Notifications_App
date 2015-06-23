@@ -2,5 +2,27 @@
 	<% post=notif.post %>
 	<% li_id=[getid,notif.id] %>
 	<% li_id=li_id.join %>
-	<li id=<%= li_id %>><%= link_to notif.message, post_path(post) %></li>
+	<!--<li id='<%= li_id %>'><%= link_to notif.message, post_path(post) %></li>-->
+	<div class="col-md-4 col-lg-4">
+	<div class="panel panel-warning">
+		<div class="panel-heading">
+			<h3 class="panel-title"><%= post.title %></h3>
+		</div>
+		<div class="panel-body">
+		<% if post.date %>
+		  			<p>Event date<%=post.date %></p>
+		  		<%else %>
+		  			<p>Event starts from <%=post.fromdate %>
+		  			and ends at <%= post.todate %></p>
+		  		<%end%>	
+				
+	 <div class="panel-footer ">
+		  <%= link_to 'Read more',post_path(:id => post.id.to_s+"@"), :remote => true, "data-toggle" => "modal", "data-target" => "#postModal"%>		
+		  </div>
+	</div>
+	</div>
+	</div>
+
+
+
 <% end %>

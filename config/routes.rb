@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 #	get 'posts' => 'posts#show'
 #	post 'comments' => 'comments#create'
 #	post 'posted' => 'posts#create'
+  get "/fetch_post" => 'staticpages#ajaxposts', as: 'fetch_post'
 	resources :posts 
 	resources :comments
 #	resources :cats
