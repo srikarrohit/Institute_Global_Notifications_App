@@ -24,7 +24,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'jquery-ui-rails'
-
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 gem "watu_table_builder", :require => "table_builder"
 #gem 'summernote-rails'
 gem 'font-awesome-rails' # required
