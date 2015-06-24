@@ -4,5 +4,7 @@ class StaticpagesController < ApplicationController
 		if logged_in?
 			@usercat= Usercat.find_by(user_id: getid)
 		end
+		
+	
 	end
 end

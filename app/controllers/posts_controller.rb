@@ -47,7 +47,15 @@ class PostsController < ApplicationController
 		end
 	end
 	def show
-		@post = Post.find(params[:id])
+		if params[:id].include? "@"
+			p=params[:id].split('@')
+			@post = Post.find(p[0])
+			respond_to do |format|
+        	format.js
+        	end	
+        else
+        	@post = Post.find(params[:id])
+    	end
 		@comments = Comment.where(post_id: @post.id)
 	end
 	private 
