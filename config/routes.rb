@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   root 'staticpages#home'
 
-	post 'login' => 'sessions#create'
-	delete 'logout' => 'sessions#destroy'
+	#post 'login' => 'sessions#create'
+	#delete 'logout' => 'sessions#destroy'
 #	get 'newpost'  => 'posts#new'
 #	post 'newpost' => 'posts#create'
 	get 'cats' => 'cats#index'
@@ -15,9 +15,12 @@ Rails.application.routes.draw do
 #	get 'posts' => 'posts#show'
 #	post 'comments' => 'comments#create'
 #	post 'posted' => 'posts#create'
-  get "/fetch_post" => 'staticpages#ajaxposts', as: 'fetch_post'
+  #get "/fetch_post" => 'staticpages#ajaxposts', as: 'fetch_post'
 	resources :posts 
 	resources :comments
+  resources :oauth
+  get 'login'=> 'oauth#index'
+  delete 'logout'=>'oauth#signout'
 #	resources :cats
 #	resources :comments
  # The priority is based upon order of creation: first created -> highest priority.
