@@ -50,8 +50,6 @@ GEM
       mini_magick (~> 4.0)
       remotipart (~> 1.2)
     builder (3.2.2)
-    byebug (5.0.0)
-      columnize (= 0.9.0)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -64,7 +62,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    columnize (0.9.0)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.5.2)
@@ -177,7 +174,6 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   bootsy
-  byebug
   coffee-rails (~> 4.1.0)
   font-awesome-rails
   fullcalendar-rails
