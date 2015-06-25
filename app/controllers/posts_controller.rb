@@ -58,6 +58,25 @@ class PostsController < ApplicationController
     	end
 		@comments = Comment.where(post_id: @post.id)
 	end
+	  def search
+    @posts = []
+  
+      @posts_title = Post.search(params[:search], 'title')
+      @posts = @posts + @posts_title
+      @posts_contents = Post.search(params[:search], 'content' )
+      @posts = @posts + @posts_contents
+
+      @posts_contents = Post.search(params[:search], 'fromdate' )
+      @posts = @posts + @posts_contents
+      @posts_contents = Post.search(params[:search], 'todate' )
+      @posts = @posts + @posts_contents
+       @posts_contents = Post.search(params[:search], 'date' )
+      @posts = @posts + @posts_contents
+      
+    #end
+   
+    #end
+  end
 	private 
 		def post_params
 			params.require(:post).permit(:newpost,current_user.id)

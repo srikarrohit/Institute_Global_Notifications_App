@@ -7,4 +7,11 @@ class Post < ActiveRecord::Base
 	validates :content,presence: true, length: { maximum: 300 }
 	validates :title,presence: true, length: { maximum: 50 }
 	validates :cat_id,presence: true
+
+
+
+def self.search(search, designation)
+    search_condition = "%" + search + "%"
+    where("#{designation} LIKE ?", "%#{search}%")
+  end
 end

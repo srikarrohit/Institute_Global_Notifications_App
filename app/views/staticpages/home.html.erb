@@ -3,7 +3,8 @@
 	
 	</div>
 <% else %>
-<div class="notifs container">
+<div class="notifs container-fluid">
+<div class="col-md-8 col-lg-9">
 	<% if !@usercat.nil? && !(@usercat.categories).empty? %>
 		<% cats= @usercat.categories %>
 		<% cats = cats.split(',') %>
@@ -22,7 +23,10 @@
 			<% end %>
 		<% end %>
 	<% end %>
-	<div id='calendar'></div>	
+	</div>
+	<div class="col-md-3">
+	<%= render 'shared/calendar'%>	
+	</div>
 <% end %>
 
 </div>

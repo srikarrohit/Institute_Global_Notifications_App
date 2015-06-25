@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :oauth
   get 'login'=> 'oauth#index'
   delete 'logout'=>'oauth#signout'
+  get  'search'=> 'posts#search'
 #	resources :cats
 #	resources :comments
  # The priority is based upon order of creation: first created -> highest priority.

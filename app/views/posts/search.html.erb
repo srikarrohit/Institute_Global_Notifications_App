@@ -1,0 +1,30 @@
+<%= content_for :title do %>
+  Search
+<% end %>
+
+<% if logged_in? %>
+ 
+<br>
+<div class="post_main_container col-md-8 col-xs-12">
+<% if @posts and @posts.length!=0 %>
+  <div class="">Here are the resultant articles for your search string : </div>
+  <br>
+
+<% @posts.uniq.sort!{|a,b| b.created_at <=> a.created_at }.each do |post| %>
+  <%= render post %>
+<% end %>
+<% end %>
+
+<% if @posts.length==0 %>
+  <div class="post_div"><b>No Search results found.</b></div>
+<% end %>
+<br>
+<% if @posts.length>10 %>
+    <%= render 'shared/loadmore' %>
+<% end %>
+</div>
+
+<% else %>
+
+  <%= render 'shared/unsigned' %>
+<% end %>
