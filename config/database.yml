@@ -8,7 +8,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   username: root
-  password: sai
+  password: a
   pool: 5
   socket: /var/run/mysqld/mysqld.sock
 
@@ -16,7 +16,7 @@ development:
   <<: *default
   database: notification_development
   username: root
-  password: sai
+  password: a
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -25,17 +25,17 @@ test:
   <<: *default
   database: notification_test
   username: root
-  password: sai
+  password: a
 
 production:
   <<: *default
   database: notification_production
   username: root
-  password: sai
+  password: a
 
 students_1415:
   <<: *default
   database: students_1415
   username: root
-  password: sai
+  password: a
 

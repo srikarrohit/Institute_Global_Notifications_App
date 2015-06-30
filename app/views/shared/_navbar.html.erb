@@ -1,30 +1,33 @@
-<div class="navcontainer container-fluid">
-<header class="navbar navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="col-md-3">
-			<%= link_to "Notification Portal", root_path, id: "logo" %>
-		</div>
-    <nav>
-			<% if logged_in? %>
-      	<ul class="nav navbar-nav navbar-right">
-					<li><%= link_to "All Posts", posts_path %></li>
-					<% if admin? %>
-  					<li><%= link_to "New Post", new_post_path %></li>
-					<% end %>
-					<li>
-							<%=render 'shared/search'%>
-					</li>
-					<li class="dropdown">
- 						<a href="#" class="dropdown-toggle" data-toggle ="dropdown" role="button" ><%= current_user.fullname %></a>
-						<ul class="dropdown-menu">
-							<li><%= link_to "Profile" %></li>
-							<li><%= link_to "Categories",cats_path %></li>
-							<li><%= link_to "Log out", logout_path , method: "delete" %></li>
-						</ul>
-					</li>
-      	</ul>
-			<% end %>
-    </nav>
-  </div>
-</header>
-</div>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class=" navbar_container container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <%= link_to(root_path) do %>
+                <b class="navbar-brand">Notifications Portal</b>
+        <% end %>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggdivng -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <% if logged_in? %>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.fullname %><span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="navbar_link"><a href="#">Profile*</a></li>
+                    <li class="divider"></li>
+                    <li class="navbar_link"><%= link_to "Sign Out", logout_path %></li>
+                </ul>
+                </li>
+            <% else %>
+                    <li class="navbar_link"><a data-toggle="modal" data-target="#signin_modal" href="#">Sign In</a></li>
+            <% end %>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
