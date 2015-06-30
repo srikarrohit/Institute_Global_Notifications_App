@@ -7,20 +7,13 @@ $pale_bg_color: #F7F8FC;
 $side_button_color: #E9EEF4;
 $google_color: #4285f4;
 $facebook_color: #3A5799;
-
 $coolorange: #f39c12;
 
-#logo
-{
-	color: $white;
-	font-size:20px;
-	position: absolute;
-	top:10px;
-}
 td
 {
-padding: 10px;
+    padding: 10px;
 }
+
 //.panel-heading
 //{
 //	background-color: $coolorange!important;
@@ -29,92 +22,96 @@ padding: 10px;
 //	font-size:15px;
 //	border-color:none!important;
 //}
+
 .sbox
 {
-border-radius:0px;
-position:absolute;
-top:150px;
-height:230px!important;
-border:1px solid $coolorange;
-margin-left:0%;
+    border-radius:0px;
+    position:absolute;
+    top:150px;
+    height:230px!important;
+    border:1px solid $coolorange;
+    margin-left:0%;
 }
+
 .sbody
 {
-//border:1px solid black;
+    //border:1px solid black;
 }
+
 .btn
 {
-background-color:$coolorange;
-color:white;
-border:2px solid $coolorange!important;
+    background-color:$coolorange;
+    color:white;
+    border:2px solid $coolorange!important;
 }
+
 table
 {
-margin-top:15px;
+    margin-top:15px;
 }
 .sup
 {
-margin-left:14%;
+    margin-left:14%;
 }
 .cats
 {
-margin-top:6%;
+    margin-top:6%;
 }
 .bootsy_text_area
 {
-width:55%;
-height:250px;
-overflow-y:hidden;
-padding:5px;
+    width:55%;
+    height:250px;
+    overflow-y:hidden;
+    padding:5px;
 }
 .fbtn
 {
-background-color:$coolorange!important;
+    background-color:$coolorange!important;
 }
 .or
 {
-width:0px!important;
-text-align:center;
-padding-left:0px;
-padding-top:6px;
+    width:0px!important;
+    text-align:center;
+    padding-left:0px;
+    padding-top:6px;
 }
 .allposts
 {}
 //d
 .post-head
 {
-border-bottom: 1px solid #ddd;
-min-height:20px!important;
-padding-bottom:10px!important;
+    border-bottom: 1px solid #ddd;
+    min-height:20px!important;
+    padding-bottom:10px!important;
 }
 .post-head>h1
 {
-margin-bottom:2px;
+    margin-bottom:2px;
 }
 .post-body
 {
-border-radius:5px;
-//border-bottom-right-radius:5px;
-//border-top-right-radius:5px;
-background-color:#f9f9f9;
-min-height:300px!important;
-border:1px solid #ddd;
-padding-top:15px;
-font-family:"Times New Roman", Times, serif;
-font-size:20px;
+    border-radius:5px;
+    //border-bottom-right-radius:5px;
+    //border-top-right-radius:5px;
+    background-color:#f9f9f9;
+    min-height:300px!important;
+    border:1px solid #ddd;
+    padding-top:15px;
+    font-family:"Times New Roman", Times, serif;
+    font-size:20px;
 }
 .category
 {
-margin-top:30px;
+    margin-top:30px;
 }
 .commentcont
 {
-font-family:"Times New Roman", Times, serif;
-font-size:15px;
-border:1px solid #ddd;
-border-radius:5px;
-padding:10px;
-margin-bottom:10px;
+    font-family:"Times New Roman", Times, serif;
+    font-size:15px;
+    border:1px solid #ddd;
+    border-radius:5px;
+    padding:10px;
+    margin-bottom:10px;
 }
 .dateblock
 {
