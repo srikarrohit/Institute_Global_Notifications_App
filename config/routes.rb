@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   #get "/fetch_post" => 'staticpages#ajaxposts', as: 'fetch_post'
 	resources :posts 
 	resources :comments
-  resources :oauth
-  get 'login'=> 'oauth#index'
-  delete 'logout'=>'oauth#signout'
+#  resources :oauth
+  post 'login'=> 'sessions#create'
+  delete 'logout'=>'sessions#destroy'
   get  'search'=> 'posts#search'
 #	resources :cats
 #	resources :comments

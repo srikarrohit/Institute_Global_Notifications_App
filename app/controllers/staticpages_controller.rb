@@ -3,8 +3,8 @@ class StaticpagesController < ApplicationController
 		@notifs= Notification.all
 		if logged_in?
 			@usercat= Usercat.find_by(user_id: getid)
-		else
-         redirect_to url_for(:controller=>'oauth',:action=>'index')
+#		else
+ #        redirect_to url_for(:controller=>'oauth',:action=>'index')
 		end
 			
 
