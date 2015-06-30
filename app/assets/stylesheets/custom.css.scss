@@ -1,20 +1,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+$primary-color: #3498db;
+$primary-dark-color: #2980b9;
+$white: #ecf0f1; 
+$pale_bg_color: #F7F8FC;
+$side_button_color: #E9EEF4;
+$google_color: #4285f4;
+$facebook_color: #3A5799;
 
 $coolorange: #f39c12;
 
-.navbar
-{
-	background-color: $coolorange!important;
-}
-.navcontainer
-{
-height:60px;
-
-}
 #logo
 {
-	color:white;
+	color: $white;
 	font-size:20px;
 	position: absolute;
 	top:10px;
@@ -122,3 +120,82 @@ margin-bottom:10px;
 {
 min-height:40px;
 }
+
+/* Styling for General layout */
+
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    margin: 0;
+}
+
+.main{
+    overflow-y: hidden;
+    //    margin: 0 auto -50px !important;
+    padding-top: 50px;
+    padding-bottom: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+/* navbar styling */
+
+.navbar_container{
+    height: inherit;
+    background-color: $primary-color;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+
+.navbar
+{ 
+    height: 50px;
+    min-height: 0;
+    margin: auto;
+    box-shadow: 0 1px 2px -1px $primary-dark-color !important;
+}
+
+.navbar-collapse{
+    min-height: 0;
+    height: 50px !important;
+}
+
+.navbar-header{
+    height: inherit;
+    width:15%;
+    background-color: $primary-dark-color;
+}
+
+.navbar-brand{
+    height: inherit;
+    color: $white !important;
+    width: 100%;
+    text-align: center;
+    margin-left: 0 !important;
+}
+
+.navbar-right{
+    height: 50px;
+    margin-right: 0;
+}
+
+.navbar-nav>li>a{
+    color: $white !important;
+}
+
+.navbar-right>li>a:hover{
+    color: $primary_color !important;
+    background-color: $white !important;
+}
+
+.dropdown-toggle:active{
+    color: $primary-color;
+}
+

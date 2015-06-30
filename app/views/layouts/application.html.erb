@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Notifportal</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<title>Notifications Portal | <%= yield :title %></title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/<%=bootstrap_version %>/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/css/bootstrap.min.css" rel="stylesheet">
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'shared/navbar' %>
-<%= yield %>
-</body>
+<%= render "shared/navbar"%>
+<div class="main container-fluid">
+
+    <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
+    <%= yield %>
+
+</div>
+
+</div>
 </html>

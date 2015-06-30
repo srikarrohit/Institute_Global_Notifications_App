@@ -20,8 +20,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-
-.calendar,.sidebar
+#calendar
+{
+width:500px;
+}
+/*.calendar,.sidebar
 {
 	position: fixed;
 	
@@ -44,4 +47,4 @@
 .month0
 {
 	width:100%;
-}
+}*/
