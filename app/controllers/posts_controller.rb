@@ -27,9 +27,13 @@ class PostsController < ApplicationController
 		title = params[:post][:title]
 		categoryid = params[:post][:cat_id]
 		fromdate=params[:post][:fromdate]
+		if fromdate!=""
 		fromdate=Date.parse(fromdate).strftime("%Y-%d-%m")
+		end
 		todate=params[:post][:todate]
+		if todate!=""
 		todate=Date.parse(todate).strftime("%Y-%d-%m")
+		end
 		date=params[:post][:date]
 		time=params[:post][:time]
 		location=params[:post][:location]

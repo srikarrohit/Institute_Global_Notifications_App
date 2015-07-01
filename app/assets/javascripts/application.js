@@ -24,7 +24,7 @@
 $(function() {
   $("#post_fromdate").datepicker();
 	$("#post_todate").datepicker();
-	$("#post_date").datepicker();
+	$("#post_date").datepicker({dateFormat: 'yy-mm-dd'});
 	$("#post_time").timepicker();	
 });
 $(document).ready(function(){

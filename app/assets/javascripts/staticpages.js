@@ -31,7 +31,7 @@ events:function(start,end,timezone,callback)
        	console.log(e.message);
     	}
 });
-}
+},
 });
 /*(function($) {
 var url = 'http://localhost/php2.php?callback=?';
