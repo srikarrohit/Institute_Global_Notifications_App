@@ -1,8 +1,13 @@
+<% if false %>
 <% if getid != notif.user_id %>
 	<% post=notif.post %>
 	<% li_id=[getid,notif.id] %>
 	<% li_id=li_id.join %>
 	<!--<li id='<%= li_id %>'><%= link_to notif.message, post_path(post) %></li>-->
+<% end %>
+<% end %>
+<% @posts=Post.all %>
+<% @posts.each do |post| %>
 	<div class="col-md-4 col-lg-4">
 	<div class="panel panel-warning">
 		<div class="panel-heading">
@@ -23,7 +28,4 @@
 	</div>
 	</div>
 	</div>
-
-
-
 <% end %>

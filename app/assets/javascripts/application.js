@@ -22,8 +22,8 @@
 //= require bootsy
 //= require_tree .
 $(function() {
-  $("#post_fromdate").datepicker();
-	$("#post_todate").datepicker();
+  $("#post_fromdate").datepicker({dateFormat: 'yy-mm-dd'});
+	$("#post_todate").datepicker({dateFormat: 'yy-mm-dd'});
 	$("#post_date").datepicker({dateFormat: 'yy-mm-dd'});
 	$("#post_time").timepicker();	
 });
