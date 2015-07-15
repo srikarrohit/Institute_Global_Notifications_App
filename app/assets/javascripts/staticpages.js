@@ -13,6 +13,12 @@
     });
 	}*/
 //	var url = 'http://localhost/php2.php?callback=?';
+eventLimit: true, // for all non-agenda views
+    views: {
+        agenda: {
+            eventLimit: 3 // adjust to 6 only for agendaWeek/agendaDay
+        }
+    },
 events:function(start,end,timezone,callback)
 { 
 	$.ajax({

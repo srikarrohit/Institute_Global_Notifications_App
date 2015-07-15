@@ -200,9 +200,45 @@ body{
 #calendar
 {
 	position:fixed;
-	right:0px;
-	top:250px;
+	right:20px;
+	top:10vh;
 }
 .fc-time{
-   display : none;
+//   display : none;
 }
+.fc-other-month
+{
+}
+.fc-row
+{
+}
+th
+{
+border-width:0px 0px 0px 0px!important;
+}
+td
+{
+border-width: 0px 0px 0px 0px!important;
+}
+.notifs
+{
+display:none;
+}
+table
+{
+//border:1px solid blue!important;
+}
+th,td
+{
+//border:0px;
+}
+table
+{
+//border-collapse:collapse!important;
+background-color:#fbfcfc;
+}
+.fc-scroller
+{
+overflow:hidden!important;
+}
+
