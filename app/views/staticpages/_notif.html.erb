@@ -9,23 +9,18 @@
 <% @posts=Post.all %>
 <% @posts.each do |post| %>
 	<div class="col-md-4 col-lg-4">
-	<div class="panel panel-warning">
-		<div class="panel-heading">
-			<h3 class="panel-title"><%= post.title %></h3>
-		</div>
-		<div class="panel-body">
-		<div class="dateblock">
-		<% if post.date %>
+	<div class="notificationblock">
+<!--	<h2><i class="fa fa-envelope-o"></i></h2>-->
+			<div id="notificationheader">
+					<%= image_tag(post.cat.image,:class=>"pics") %>
+					<span id="headertext"><%= post.cat.category %></span></div>
+					<% if post.date %>
 		  			<p>Event date <%=post.date %></p>
 		  		<%else %>
 		  			<p>Event starts from <%=post.fromdate %>
 		  			and ends at <%= post.todate %></p>
 		  		<%end%>	
-			</div>	
-	 <div class="panel-footer ">
-		  <%= link_to 'Read more',post_path(:id => post.id.to_s+"@"), :remote => true, "data-toggle" => "modal", "data-target" => "#postModal"%>		
-		  </div>
+		 		  <%= link_to 'Read more',post_path(:id => post.id.to_s+"@"), :remote => true, "data-toggle" => "modal", "data-target" => "#postModal"%>		
 	</div>
-	</div>
-	</div>
+		</div>
 <% end %>

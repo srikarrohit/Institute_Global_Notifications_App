@@ -129,7 +129,6 @@ body{
 }
 
 .main{
-    overflow-y: hidden;
     //    margin: 0 auto -50px !important;
     padding-top: 50px;
     padding-bottom: 0;
@@ -246,4 +245,32 @@ text-align:center!important;
 .fc-today
 {
 background-color:#fcf8e3!important;
+}
+.notificationblock
+{
+min-height:30vh;
+border:1px solid black;
+margin-bottom:2vh;
+}
+h2
+{
+margin-top:0px!important;
+margin-bottom:0px!important;
+}
+#notificationheader
+{
+font-weight:bold;
+margin-top:1vh;
+}
+.pics
+{
+position:relative;
+left:20%;
+height:30px;
+width:30px;
+}
+#headertext
+{
+position:relative;
+left:25%;
 }
