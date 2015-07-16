@@ -1,11 +1,10 @@
-<% if false %>
 <% if !logged_in? %>
 	<div class="container">
 <%= render 'shared/login' %>	
 	</div>
 <% else %>
 <div class="notifs container-fluid">
-<div class="col-md-8 col-lg-9">
+<div class="col-md-7">
 	<% if !@notifs.nil? && !@notifs.empty? %>
 		<% notifs= @notifs %>
 		<% notifs = notifs.split(',') %>
@@ -15,16 +14,7 @@
 		<% end %>
 	<% end %>
 		</div>
-	<div class="col-md-3">
-<!--	<%= render 'shared/calendar'%>	-->
-	</div>
 <% end %>
-</div>
-<% end %>
-<div class="notifs container-fluid">
-<div class="col-md-7">
-<%= render :partial => 'notif' %>
-</div>
 	<div class="modal fade" id="postModal" role="dialog">
     <div class="modal-dialog">
     
@@ -44,13 +34,10 @@
       
     </div>
   </div>
-<div class="col-md-4">
-<div id="calendar"></div>
-</div>
-</div>
-<% if false %>
 	<% if logged_in? %>
-		<div id="calendar"></div>
+		<div class="col-md-4">
+			<div id="calendar"></div>
+		</div>
 	<% end %>
-<% end %>
+</div>
 <%= javascript_include_tag "staticpages" %>
