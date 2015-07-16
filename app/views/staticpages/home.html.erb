@@ -6,25 +6,15 @@
 <% else %>
 <div class="notifs container-fluid">
 <div class="col-md-8 col-lg-9">
-	<% if !@usercat.nil? && !(@usercat.categories).empty? %>
-		<% cats= @usercat.categories %>
-		<% cats = cats.split(',') %>
-    <% cats.map!{ |c| c.to_i } %>
-    <% cats.each do |cat| %>
-			<% @notifs.each do |notif| %>
-				<% if cat == notif.cat_id %>
-					<%= render :partial => 'notif',:locals=>{notif: notif} %>
-				<% end %>
-			<% end %>
-		<% end %>
-	<% else %>
-		<% @notifs.each do |notif| %>
-    	<% if cat = notif.cat_id %>
-     		<%= render :partial => 'notif',:locals=>{notif: notif} %>
-			<% end %>
+	<% if !@notifs.nil? && !@notifs.empty? %>
+		<% notifs= @notifs %>
+		<% notifs = notifs.split(',') %>
+    <% notifs.map!{ |c| c.to_i } %>
+    <% notifs.each do |notif| %>
+			<%= render :partial => 'notif',:locals=>{notif: notif} %>
 		<% end %>
 	<% end %>
-	</div>
+		</div>
 	<div class="col-md-3">
 <!--	<%= render 'shared/calendar'%>	-->
 	</div>

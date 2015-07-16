@@ -1,3 +1,4 @@
+require 'json'
 class PostsController < ApplicationController
 	def index
 		postss=Array.new
@@ -22,18 +23,12 @@ class PostsController < ApplicationController
 		@cats = Cat.all
 	end
 	def create
-		@cats=Cat.all#when the form is submitted and goes to this actio, @cats is no more a variable provided by the controller so need to call again
+		@cats=Cat.all
 		post = params[:post][:content]
 		title = params[:post][:title]
 		categoryid = params[:post][:cat_id]
 		fromdate=params[:post][:fromdate]
-	#	if fromdate!=""
-	#	fromdate=Date.parse(fromdate).strftime("%Y-%d-%m")
-	#	end
 		todate=params[:post][:todate]
-	#	if todate!=""
-	#	todate=Date.parse(todate).strftime("%Y-%d-%m")
-	#	end
 		date=params[:post][:date]
 		time=params[:post][:time]
 		location=params[:post][:location]
@@ -44,8 +39,48 @@ class PostsController < ApplicationController
 			@notif.user_id = getid
 			@notif.post_id = @post.id
 			@notif.cat_id = @post.cat_id
-			@notif.message = @post.user.fullname + " " + "Posted"
 			@notif.save
+			@usercat= Usercat.find_by(user_id: getid)
+			if !@usercat.nil? && !(@usercat.categories).empty?
+				cats= @usercat.categories
+				cats = cats.split(',')
+				cats.map!{ |c| c.to_i }
+				cats.each do |cat|
+					if cat == @notif.cat_id
+						file=File.read("public/users.json")
+						data_hash = JSON.parse(file)
+						f=File.open("public/users.json","w")
+						data_hash.each do |data|
+							notiftostring=@notif.id
+							initial = data["notifids"].to_s
+							new = notiftostring.to_s
+							if initial.empty?
+								data["notifids"] = new
+							else
+								data["notifids"] = initial + "," + new
+							end
+						end
+						data_hash=data_hash.to_json
+						f.write(data_hash)
+					end
+				end
+			else
+				file=File.read("public/users.json")
+				data_hash = JSON.parse(file)
+				f = File.open("public/users.json","w")
+				data_hash.each do |data|
+					notiftostring=@notif.id
+					initial = data["notifids"].to_s
+					new = notiftostring.to_s
+					if initial.empty?
+						data["notifids"] = new
+					else
+						data["notifids"] = initial + "," + new
+					end
+				end
+				data_hash=data_hash.to_json
+				f.write(data_hash)
+			end
 			@usercats = Usercat.all
 			redirect_to posts_path
 		else

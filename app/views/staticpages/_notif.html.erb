@@ -1,9 +1,10 @@
 <% if false %>
-<% if getid != notif.user_id %>
-	<% post=notif.post %>
-	<% li_id=[getid,notif.id] %>
+<% notifdetails = Notification.find_by(id: notif) %>
+<% if getid != notifdetails.user_id %>
+	<% post = Post.find_by(id: notifdetails.post_id) %>
+	<% li_id=[getid,notifdetails.id] %>
 	<% li_id=li_id.join %>
-	<!--<li id='<%= li_id %>'><%= link_to notif.message, post_path(post) %></li>-->
+	<!--<li id='<%= li_id %>'><%= link_to notifdetails.message, post_path(post) %></li>-->
 <% end %>
 <% end %>
 <% @posts=Post.all %>
