@@ -14,7 +14,8 @@
 <!--	<h2><i class="fa fa-envelope-o"></i></h2>-->
 			<div id="notificationheader">
 					<%= image_tag(post.cat.image,:class=>"pics") %>
-					<span id="headertext"><%= post.cat.category %></span></div>
+					<span id="headertext"><%= post.cat.category %></span>
+					<button type="button" class="close" onclick = "destroy('<% getid %>','<% notif %>')" >&times;</button></div>
 					<% if post.date %>
 		  			<p>Event date <%=post.date %></p>
 		  		<%else %>

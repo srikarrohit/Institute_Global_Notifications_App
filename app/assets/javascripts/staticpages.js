@@ -39,22 +39,35 @@ events:function(start,end,timezone,callback)
 });
 },
 });
-/*(function($) {
-var url = 'http://localhost/php2.php?callback=?';
- 
-$.ajax({
-   type: 'GET',
-    url: url,
-    async: false,
-    jsonpCallback: 'jsonCallback',
-    contentType: "application/json",
-    dataType: 'jsonp',
-    success: function(json) {
-       console.dir(json.events);
-    },
-    error: function(e) {
-       console.log(e.message);
+function destroy(x,y){    
+	var url = "/public/users.json";
+  var http = new XMLHttpRequest();
+  http.open("POST", url, true);
+  http.setRequestHeader("Content-type", "application/json");
+    http.onreadystatechange = function() {
+        if(http.readyState == 4 && http.status == 200) {
+            var data = JSON.parse(http.responseText);
+						for (var obj in data)
+						{
+							if( obj.id == x )
+							{
+								var initial = obj.notifids;
+								var split = initial.split(',');
+								var copy = split;
+								for ( var s in split )
+								{
+									if( s == y)
+									{
+										copy.splice(indexOf(y),1)
+									}
+								}
+								split = copy;
+								split.join(',');
+								var finaldata = split;
+								obj.notifids = finaldata;
+							}
+						}
+        }
     }
-});
- 
-})(jQuery);*/
+    http.send(data);
+	}
