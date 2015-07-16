@@ -193,11 +193,16 @@ body{
 .dropdown-toggle:active{
     color: $primary-color;
 }
+body
+{
+//background-color:#bdc3c7;
+}
 
 /* calendar */
 .notifs
 {
 margin-top:3vh;
+//background-color:#bdc3c7;
 }
 #calendar
 {
@@ -248,9 +253,11 @@ background-color:#fcf8e3!important;
 }
 .notificationblock
 {
-min-height:30vh;
-border:1px solid black;
+min-height:40vh;
+border:1px solid #bdc3c7;;
 margin-bottom:2vh;
+box-s
+//background-color:white;
 }
 h2
 {
@@ -266,8 +273,8 @@ margin-top:1vh;
 {
 position:relative;
 left:20%;
-height:30px;
-width:30px;
+height:40px;
+width:40px;
 }
 #headertext
 {
