@@ -1,38 +1,38 @@
 <% post=@post %>
 <div class="container">
-<div class="post container">
-	<div class="row">
-		<div class="post-head col-md-8">
-			<h1><%= (post.title).upcase %></h1>
-		</div>
+	<div class="post container">
+		<div class="row">
+			<div class="post-head col-md-8">
+				<h1><%= (post.title).upcase %></h1>
 			</div>
-<br>
+		</div>
+	<br>
 	<div class="row">
 		<div class="col-md-offset-4 col-md-4">
 			on <%= (post.updated_at).strftime("%B %e,%Y") %>
 			by <%= post.user.fullname %>
 		</div>
-				</div>
+	</div>
 	<div class="row">
 		<div class="post-body col-md-8">
-		<%= simple_format(post.content,html_options={class: "content"},wrapper_tag:"div") %>
+			<%= simple_format(post.content,html_options={class: "content"},wrapper_tag:"div") %>
 		</div>
-			<div class="col-md-4 category">
+		<div class="col-md-4 category">
 			Category:<%= post.cat.category %>
 		</div>
-		  <% if (post.fromdate).nil? && (post.todate).nil? && !(post.date).nil?%>
-        <div class="col-md-4">
-          <%= (post.date) %>
-        </div>
+		<% if (post.fromdate).nil? && (post.todate).nil? && !(post.date).nil?%>
+        	<div class="col-md-4">
+          		<%= (post.date) %>
+        	</div>
 			<br>
-      <% end %>
-      <% if !(post.fromdate).nil? && !(post.todate).nil? && (post.date).nil? %>
-      <div class="col-md-4 dates">
-        from:<%=(post.fromdate)%>
-        <br>
-        to:<%= (post.todate) %>
-      </div>
-      <% end %>
+      	<% end %>
+      	<% if !(post.fromdate).nil? && !(post.todate).nil? && (post.date).nil? %>
+      		<div class="col-md-4 dates">
+        		from:<%=(post.fromdate)%>
+        		<br>
+        		to:<%= (post.todate) %>
+      		</div>
+      	<% end %>
 		<% if !(post.time).nil? %>
 			<div class="col-md-4">
 				Time:<%= (post.time).strftime("%H %p") %>
@@ -40,40 +40,8 @@
 		<% end %>
 		<% if !(post).location.nil? %>
 			<div class="col-md-4">
-        Location:<%= post.location %>
-      </div>
+        		Location:<%= post.location %>
+      		</div>
 		<% end %>
 	</div>
-</div>
-<br>
-<div class="container comcont">
-	<div class="row">
-	<% if true %>
-		<% @comments = Comment.where(post_id: post.id) %>
-		<div class = <%= post.id %> >
-		<% if !@comments.nil? %>
-		<% @comments.each do |comment| %>
-  			<%= render :partial => 'comments/comment',	:locals => { comment: comment }%>
- 				<% if false %>
-					<%= render comment %>
-					<%= render 'comments/comment', comment: comment %>
-				<% end %>
-		<% end %>
-		<% end %>
-		</div>
-	</div>
-</div>
-<div class="row">
-<div class="col-md-8">
-<br>
-<%= form_for(:comment, url: comments_path, :remote=> :true) do |f| %>
-  <%= f.text_field :newcomment ,:class=>"form-control",:placeholder=>"Comment"  %>
-	  <%= f.text_field :id, :value => post.id ,:style => "display:none" %>
-	<br>
-  <%= f.submit "comment",:class=>"btn btn-warning" %>
-<% end %>
-</div>
-</div>
-<br>
-<% end%>
 </div>

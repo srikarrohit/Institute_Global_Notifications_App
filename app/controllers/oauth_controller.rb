@@ -20,9 +20,12 @@ class OauthController < ApplicationController
 	     		session[:user_id]=@user['id']
 	     		@student=User.find_by_username(@user['username'])
 	     		log_in @student
-	     		#@student.update('remember_token'=>@access_token)
-	     		#cookies.permanent[:remember_token] = @student.remember_token 		    
-	     		redirect_to root_path
+					if @student.remember_token == 0
+						redirect_to cats_path
+						@student.remember_token = 1
+					else
+	     			redirect_to root_path
+					end
 	     	end	
 		elsif  @auth_code
 			   	generate_token_req

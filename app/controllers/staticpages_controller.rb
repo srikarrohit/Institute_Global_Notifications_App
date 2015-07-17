@@ -11,8 +11,8 @@ class StaticpagesController < ApplicationController
 		end
 		if logged_in?
 			@usercat= Usercat.find_by(user_id: getid)
-#		else
- #        redirect_to url_for(:controller=>'oauth',:action=>'index')
+		else
+      redirect_to url_for(:controller=>'oauth',:action=>'index')
 		end	
 	end
 end
