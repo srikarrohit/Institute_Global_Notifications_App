@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150620114157) do
+ActiveRecord::Schema.define(version: 20150723043154) do
 
   create_table "admins", force: :cascade do |t|
     t.integer  "adminid",    limit: 4
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 20150620114157) do
 
   create_table "cats", force: :cascade do |t|
     t.text     "category",   limit: 65535
-    t.text     "image",      limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.text     "image",      limit: 65535
   end
 
   create_table "comments", force: :cascade do |t|
@@ -67,15 +67,15 @@ ActiveRecord::Schema.define(version: 20150620114157) do
   create_table "posts", force: :cascade do |t|
     t.text     "content",    limit: 65535
     t.text     "title",      limit: 65535
-    t.date     "fromdate"
-    t.date     "todate"
-    t.date     "date"
-    t.text     "location",   limit: 65535
-    t.time     "time"
     t.integer  "user_id",    limit: 4
     t.integer  "cat_id",     limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "fromdate",   limit: 255
+    t.string   "todate",     limit: 255
+    t.string   "date",       limit: 255
+    t.string   "time",       limit: 255
+    t.string   "location",   limit: 255
   end
 
   add_index "posts", ["cat_id"], name: "index_posts_on_cat_id", using: :btree
@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 20150620114157) do
   create_table "usercats", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.text     "categories", limit: 65535
-    t.text     "notifids",   limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end

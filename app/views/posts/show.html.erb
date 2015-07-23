@@ -20,29 +20,36 @@
 			<div class="col-md-4 category">
 			Category:<%= post.cat.category %>
 		</div>
-		  <% if (post.fromdate).nil? && (post.todate).nil? && !(post.date).nil?%>
+		  <% if (post.fromdate).blank? && (post.todate).blank? && !(post.date).blank?%>
         <div class="col-md-4">
           <%= (post.date) %>
         </div>
 			<br>
       <% end %>
-      <% if !(post.fromdate).nil? && !(post.todate).nil? && (post.date).nil? %>
+      <% if !(post.fromdate).blank? && !(post.todate).blank? && (post.date).blank? %>
       <div class="col-md-4 dates">
         from:<%=(post.fromdate)%>
         <br>
         to:<%= (post.todate) %>
       </div>
       <% end %>
-		<% if !(post.time).nil? %>
+		<% if !(post.time).blank? %>
 			<div class="col-md-4">
 				Time:<%= (post.time).strftime("%H %p") %>
 			</div>
 		<% end %>
-		<% if !(post).location.nil? %>
+		<% if !(post).location.blank? %>
 			<div class="col-md-4">
         Location:<%= post.location %>
       </div>
 		<% end %>
+		
+		
+<!-- update and delete links -->
+
+		<%= link_to 'Edit', edit_post_path(post),:class => "btn btn-info" %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?'},:class => "btn btn-danger" %>
+        
 	</div>
 </div>
 <br>
@@ -51,7 +58,7 @@
 	<% if true %>
 		<% @comments = Comment.where(post_id: post.id) %>
 		<div class = <%= post.id %> >
-		<% if !@comments.nil? %>
+		<% if !@comments.blank? %>
 		<% @comments.each do |comment| %>
   			<%= render :partial => 'comments/comment',	:locals => { comment: comment }%>
  				<% if false %>

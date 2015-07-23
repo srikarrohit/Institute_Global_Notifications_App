@@ -14,12 +14,18 @@
 //= require bootstrap
 //= require jquery-ui
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require jquery.turbolinks
 //= require moment
 //= require jquery-ui-timepicker-addon
 //= require fullcalendar
 //= require bootsy
-//= require_tree .
+//= require_tree
+//= require twitter/bootstrap/transition
+//= require twitter/bootstrap/alert
+//= require twitter/bootstrap/modal
+//= require twitter/bootstrap/button
+//= require twitter/bootstrap/collapse 
 $(function() {
   $("#post_fromdate").datepicker({dateFormat: 'yy-mm-dd'});
 	$("#post_todate").datepicker({dateFormat: 'yy-mm-dd'});

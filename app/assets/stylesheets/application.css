@@ -17,6 +17,7 @@
  *= require_self
  *= require bootsy
  *= require fullcalendar
+ *= require bootstrap_and_overrides
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -49,3 +50,7 @@ width:500px;
 {
 	width:100%;
 }*/
+
+.navbar-default {
+	background-color:#3498DC;
+}

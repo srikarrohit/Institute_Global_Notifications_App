@@ -139,71 +139,7 @@ body{
     margin: 0;
 }
 
-/* navbar styling */
 
-.navbar_container{
-    height: inherit;
-    background-color: $primary-color;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
-
-
-.navbar
-{ 
-    height: 50px;
-    min-height: 0;
-    margin: auto;
-    box-shadow: 0 1px 2px -1px $primary-dark-color !important;
-}
-
-.navbar-collapse{
-    min-height: 0;
-    height: 50px !important;
-}
-
-.navbar-header{
-    height: inherit;
-    width:15%;
-    background-color: $primary-dark-color;
-}
-
-.navbar-brand{
-    height: inherit;
-    color: $white !important;
-    width: 100%;
-    text-align: center;
-    margin-left: 0 !important;
-}
-
-.navbar-right{
-    height: 50px;
-    margin-right: 0;
-}
-
-.navbar-nav>li>a{
-    color: $white !important;
-}
-
-.navbar-right>li>a:hover{
-    color: $primary_color !important;
-    background-color: $white !important;
-}
-
-.dropdown-toggle:active{
-    color: $primary-color;
-}
-body
-{
-//background-color:#bdc3c7;
-}
-
-/* calendar */
-.notifs
-{
-margin-top:3vh;
-//background-color:#bdc3c7;
-}
 #calendar
 {
 //	position:fixed;
@@ -254,9 +190,9 @@ background-color:#fcf8e3!important;
 .notificationblock
 {
 min-height:40vh;
-border:1px solid #bdc3c7;;
+border:1px solid #bdc3c7;
 margin-bottom:2vh;
-box-s
+// box-s
 //background-color:white;
 }
 h2
