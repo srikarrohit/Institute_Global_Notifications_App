@@ -25,12 +25,12 @@
 {
 width:500px;
 }
-/*.calendar,.sidebar
+.calendar,.sidebar
 {
 	position: fixed;
 	
 	height:100%;
-
+	left:0px;
 }
 
 
@@ -48,4 +48,4 @@ width:500px;
 .month0
 {
 	width:100%;
-}*/
+}

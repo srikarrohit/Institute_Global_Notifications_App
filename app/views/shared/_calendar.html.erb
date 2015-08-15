@@ -1,6 +1,7 @@
 <div class="sidebar calendar col-md-3">
 <h3><center>Calender</center></h2>
 <% for i in 0..6 do %>
-<div class="month panel panel-default month<%=i%>"><%=link_to  Time.now().day+i,search_path(:search=>Time.now().strftime("%F")) %></div>
+<div class="month panel panel-default month<%=i%>"><%=link_to  Time.now().day+i,search_path(:search=>Time.now().strftime("%F")) %>
+	</div>
 <%end%>
 </div
