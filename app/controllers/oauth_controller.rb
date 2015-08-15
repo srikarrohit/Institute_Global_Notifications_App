@@ -14,8 +14,12 @@ class OauthController < ApplicationController
 		if @access_token
 			generate_access_req
      		get_user
+     		if @user==nil
+     			session[:access_token]=nil
+     		else
+   
      		@username=@user['username'].downcase
-     		if @access_token
+     		   if @access_token
 	     		session[:username]=@username
 	     		session[:user_id]=@user['id']
 	     		@student=User.find_by_username(@user['username'])
@@ -26,7 +30,8 @@ class OauthController < ApplicationController
 					else
 	     			redirect_to root_path
 					end
-	     	end	
+	     	   end	
+	        end
 		elsif  @auth_code
 			   	generate_token_req
       			get_token

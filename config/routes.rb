@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 	resources :posts 
 #	resources :comments
   resources :oauth
+	get 'login'=> 'oauth#index'
+  delete 'logout'=>'oauth#signout'
 #  post 'login'=> 'sessions#create'
 #  delete 'logout'=>'sessions#destroy'
   get  'search'=> 'posts#search'

@@ -43,5 +43,9 @@
         		Location:<%= post.location %>
       		</div>
 		<% end %>
+			<% if getid == post.user_id %>
+				<%= link_to 'Edit', edit_post_path(post),:class => "btn btn-info" %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?'},:class => "btn btn-danger" %>
+			<% end %>
 	</div>
 </div>

@@ -78,6 +78,13 @@ $PRIVATE_SITE=false
 		end
 
 	end
-
+	  def admin?
+    id = session[:user_id]
+    if Admin.find_by(adminid: id)
+      !nil
+    else
+      false
+    end
+  end
 end
 

@@ -4,7 +4,6 @@
 	<% li_id=[getid,notifdetails.id] %>
 	<% li_id=li_id.join %>
 	<!--<li id='<%= li_id %>'><%= link_to notifdetails.message, post_path(post) %></li>-->
-<% end %>
 	<div class="col-md-4 col-lg-4">
 	<div class="notificationblock">
 <!--	<h2><i class="fa fa-envelope-o"></i></h2>-->
@@ -14,7 +13,8 @@
 					<button type="button" class="close" onclick = "destroy('<% getid %>','<% notif %>')" >&times;</button></div>
 					<% if post.date %>
 		  			<p>Event date <%=post.date %></p>
-		  		<%else %>
+					<% end %>
+		  		<% if post.fromdate and post.todate %>
 		  			<p>Event starts from <%=post.fromdate %>
 		  			and ends at <%= post.todate %></p>
 		  		<%end%>	

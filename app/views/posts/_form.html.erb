@@ -1,0 +1,51 @@
+<%= form_for(@post) do |f| %>
+	<%= render 'shared/error_messages' %>
+	<div class="row">
+	<div class="col-md-4">
+	<%= f.text_field :title, :placeholder => "Title", class: "form-control small",:autocomplete => :off %>
+	</div>
+	</div>
+	<br>
+	<div class="row">
+	<div class="col-md-2">
+		<input type="radio" id="multi" name="dtype" class="dtype" value="1">Multiple day event<br>
+		<input type="radio" id="single" name="dtype" class="dtype" value="0">Single date event<br>
+		<input type="radio" id="none" name="dtype" class="dtype" value="-1">No Date
+	</div>
+	</div>
+	<br>
+	<div class="row">
+	<div class="dates" style="display:none;">
+	<div class="col-md-2">
+	<%= f.text_field :fromdate, :placeholder => "From Date", class: "form-control small" ,:autocomplete => :off%>
+	</div>
+	<div class="col-md-2">
+  <%= f.text_field :todate, :placeholder => "To Date",class: "form-control small" ,:autocomplete => :off%>
+	</div>
+	</div>
+	<div class="col-md-2 date" style="display:none;">
+  <%= f.text_field :date, :placeholder => "Date",class: "form-control small" ,:autocomplete => :off %>
+	</div>
+	</div>
+	<br>
+	<div class="row">
+	<div class="col-md-2">
+  <%= f.text_field :time, :placeholder => "Time" ,class: "form-control small",:autocomplete => :off %>
+	</div>
+<div class="col-md-2">
+  <%= f.text_field :location, :placeholder => "Location",class: "form-control small" ,:autocomplete => :off%>
+</div>
+</div>
+<br>
+	<%= f.bootsy_area :content ,:autocomplete => :off%>
+<br>
+<br>
+	<div class="row">
+
+	<div class="col-md-2">
+	<%= f.collection_select :cat_id,@cats,:id, :category, {:include_blank => "Choose Category"}, {:class=>"form-control"} %>
+	</div>
+	<%= f.submit "update", :class=>"btn fbtn" %>
+	</div>
+<% end %>
+<br>

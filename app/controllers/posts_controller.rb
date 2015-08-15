@@ -118,8 +118,37 @@ class PostsController < ApplicationController
    
     #end
   end
-	private 
+	def edit
+  	@post = Post.find(params[:id])
+  	@cats = Cat.all
+  end
+  
+    def update
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      if @post.update(post_update)
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post }
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  def destroy
+  	@post = Post.find(params[:id])
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+private 
 		def post_params
 			params.require(:post).permit(:newpost,current_user.id)
 		end
+		def post_update
+            params.require(:post).permit(:title,:fromdate,:todate,:date,:time,:location,:content,:cat_id,:id)
+        end
 end
