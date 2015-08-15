@@ -4,16 +4,11 @@
 	</div>
 <% else %>
 <div class="notifs container-fluid">
-<div class="col-md-7">
 	<% if !@notifs.nil? && !@notifs.empty? %>
-		<% notifs= @notifs %>
-		<% notifs = notifs.split(',') %>
-    <% notifs.map!{ |c| c.to_i } %>
-    <% notifs.each do |notif| %>
-			<%= render :partial => 'notif',:locals=>{notif: notif} %>
-		<% end %>
+			<div class="col-md-7 ntif">
+				<%= render :partial => 'notif',:locals=>{notifs: @notifs} %>
+			</div>
 	<% end %>
-		</div>
 <% end %>
 	<div class="modal fade" id="postModal" role="dialog">
     <div class="modal-dialog">

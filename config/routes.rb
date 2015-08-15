@@ -5,13 +5,15 @@ Rails.application.routes.draw do
 #  get 'cats/new'
 
   root 'staticpages#home'
-
+	post 'notif' => 'staticpages#notif'
+	get 'json' => 'staticpages#json'
 	#post 'login' => 'sessions#create'
 	#delete 'logout' => 'sessions#destroy'
 #	get 'newpost'  => 'posts#new'
 #	post 'newpost' => 'posts#create'
 	get 'cats' => 'cats#index'
 	post 'cats' => 'cats#create'
+
 #	get 'posts' => 'posts#show'
 #	post 'comments' => 'comments#create'
 #	post 'posted' => 'posts#create'

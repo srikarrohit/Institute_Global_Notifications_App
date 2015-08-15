@@ -39,35 +39,41 @@ events:function(start,end,timezone,callback)
 });
 },
 });
-function destroy(x,y){    
-	var url = "/public/users.json";
+function destroy(x,y){   
+	var url = "/json";
   var http = new XMLHttpRequest();
-  http.open("POST", url, true);
+  http.open("GET", url, true);
   http.setRequestHeader("Content-type", "application/json");
+	var gdata,sdata;
     http.onreadystatechange = function() {
         if(http.readyState == 4 && http.status == 200) {
             var data = JSON.parse(http.responseText);
-						for (var obj in data)
+						stddata = data.students;
+						for (var i=0;i<stddata.length;i++)
 						{
-							if( obj.id == x )
+							if( stddata[i].id == x )
 							{
-								var initial = obj.notifids;
+								var initial = stddata[i].notifids;
 								var split = initial.split(',');
 								var copy = split;
-								for ( var s in split )
+								for ( var j=0;j<split.length;j++)
 								{
-									if( s == y)
+									if( split[j] == y)
 									{
-										copy.splice(indexOf(y),1)
+										copy.splice(j,1)
 									}
 								}
 								split = copy;
 								split.join(',');
 								var finaldata = split;
-								obj.notifids = finaldata;
+								stddata[i].notifids = finaldata;
+								data.students[i]=stddata[i];
 							}
 						}
+						gdata=data;
+						sdata=JSON.stringify(gdata);
         }
     }
-    http.send(data);
+		console.log(sdata);
+		http.send(sdata);
 	}

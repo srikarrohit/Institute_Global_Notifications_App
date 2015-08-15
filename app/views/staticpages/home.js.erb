@@ -1,1 +1,1 @@
-$(".notifs").change("<%= escape_javascript(render partial: 'notif' ) %>")
+$(".ntif").change("<%= escape_javascript(render partial: 'notif',:locals=>{notifs: @notifs} ) %>")
