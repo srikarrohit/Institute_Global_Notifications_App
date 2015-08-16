@@ -10,10 +10,10 @@ class StaticpagesController < ApplicationController
 				@notifs=data["notifids"]
 			end
 		end
-		respond_to do |format|
-    	format.html
-    	format.json
-  	end
+	#	respond_to do |format|
+  #  	format.html
+   # 	format.json
+ # 	end
 		if logged_in?
 			@usercat= Usercat.find_by(user_id: getid)
 		else
