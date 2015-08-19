@@ -1,0 +1,17 @@
+<% @feed.entries.each do |feed| %>
+<div class="post container">
+	<div class="row">
+		<div class="post-head col-md-8">
+			<h1><%= (feed.title).upcase %></h1>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="post-body col-md-8">
+			<%= simple_format(feed.content,html_options={class: "content"},wrapper_tag:"div") %>
+		</div>
+	
+		
+	</div>
+</div>
+<% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'feed/index'
+
 #  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 #  get 'cats/index'
 
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
 #	post 'newpost' => 'posts#create'
 	get 'cats' => 'cats#index'
 	post 'cats' => 'cats#create'
-
+  get 'feeds' => 'feed#index' 
 #	get 'posts' => 'posts#show'
 #	post 'comments' => 'comments#create'
 #	post 'posted' => 'posts#create'

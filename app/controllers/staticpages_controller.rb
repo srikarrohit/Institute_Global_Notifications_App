@@ -14,11 +14,11 @@ class StaticpagesController < ApplicationController
     	format.html
     	format.json
   	end
-		if logged_in?
-			@usercat= Usercat.find_by(user_id: getid)
-		else
-      redirect_to url_for(:controller=>'oauth',:action=>'index')
-		end	
+	#	if logged_in?
+	#		@usercat= Usercat.find_by(user_id: getid)
+	#	else
+    #  redirect_to url_for(:controller=>'oauth',:action=>'index')
+	#	end	
 	end
 	@@data = File.read("public/users.json")
 	def json
