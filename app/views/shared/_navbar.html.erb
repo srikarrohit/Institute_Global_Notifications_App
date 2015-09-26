@@ -1,35 +1,26 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class=" navbar_container container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <%= link_to(root_path) do %>
-                <b class="navbar-brand">Notifications Portal</b>
-        <% end %>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggdivng -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-            <li><a href="/feeds">T5E Feeds</a></li>
-                <% if logged_in? %>
-									<li><%= link_to "All Posts", posts_path %></li>
-									<% if admin? %>
-  									<li><%= link_to "New Post", new_post_path %></li>
-									<% end %>	
-                    <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.fullname %><span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                   <li><%= link_to "Profile" %></li>
-							<li><%= link_to "Categories",cats_path %></li>
-							<li><%= link_to "Log out", logout_path , method: "delete" %></li>                 </ul>
-                </li>
-              <% end %>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+<nav>
+	<div class="centernav">
+	<ul>
+		<li class="nav-li" ><a href="/" class='nav-links' >HOME</a></li>
+		<li class="nav-li"><div class='nav-search'>
+			<i class="fa fa-search"></i>
+			<input type="text" class="nav-input" size="50" placeholder="Search">	
+		</div></li>
+		<li class="nav-li" ><a href="/feeds" class='nav-links' >T5E Feeds</a></li>
+		<% if logged_in? %>
+			<li class="nav-li" ><%= link_to "All Posts", posts_path, class: "nav-links" %></li>
+			<% if admin? %>
+				<li class="nav-li" ><%= link_to "New Post", new_post_path, class: "nav-links" %></li>
+			<% end %>	
+			<li class="dropdown nav-li">
+				<a href="#" class="dropdown-toggle nav-links" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.fullname %><span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu">
+					<li><%= link_to "Profile" %></li>
+					<li><%= link_to "Categories",cats_path %></li>
+					<li><%= link_to "Log out", logout_path , method: "delete" %></li>             </ul>
+			</li>
+			<li class="nav-li"><a class="btn btn-warning" href="http://students.iitm.ac.in/feedback">Give Feedback</a></li>
+		<% end %>
+	</ul>
+	</div>
 </nav>

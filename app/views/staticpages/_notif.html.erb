@@ -8,16 +8,16 @@
 	<% li_id=[getid,notifdetails.id] %>
 	<% li_id=li_id.join %>
 	<!--<li id='<%= li_id %>'><%= link_to notifdetails.message, post_path(post) %></li>-->
-	<div class="col-md-4 col-lg-4">
+	<div class="col-md-4 col-lg-4  post-<%= notif%>">
 	<div class="notificationblock">
 <!--	<h2><i class="fa fa-envelope-o"></i></h2>-->
 			<div id="notificationheader">
 					<%= image_tag(post.cat.image,:class=>"pics") %>
 					<span id="headertext"><%= post.cat.category %></span>
 					<% @n=notif %>
-					<%= form_tag("/notif",method:"post") do %>
+					<%= form_tag("/notif", remote: true, method:"post") do %>
 					<%= text_field_tag :notif,@n,class: 'tfield' %>
-					<%= submit_tag("gone") %></div>
+					<%= submit_tag("gone", id: "submit") %></div>
 					<% end %>
 					<% if post.date %>
 		  			<p>Event date <%=post.date %></p>
