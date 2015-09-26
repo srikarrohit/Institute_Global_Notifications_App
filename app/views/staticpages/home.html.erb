@@ -3,6 +3,12 @@
 <%= render 'shared/login' %>	
 	</div>
 <% else %>
+<% if logged_in? %>
+	<%= render 'shared/sidebar' %>	
+<!--		<div class="col-md-4">
+			<div id="calendar"></div>
+		</div>-->
+<% end %>
 <div class="notifs container-fluid">
 	<% if !@notifs.nil? && !@notifs.empty? %>
 			<div class="col-md-7 ntif">
@@ -29,10 +35,5 @@
       
     </div>
   </div>
-	<% if logged_in? %>
-		<div class="col-md-4">
-			<div id="calendar"></div>
-		</div>
-	<% end %>
-</div>
+	</div>
 <%= javascript_include_tag "staticpages" %>

@@ -1,0 +1,15 @@
+<% @cats=Cat.all %>
+<div class="sidenav">
+	<ul id="menu-content" class="menu-content">
+		<% @cats.each do |cat| %>
+			<li data-toggle="collapse" data-target="#<%= cat.category %>" class="collapsed active"><a href="#"><%= cat.category %><span class="arrow"></span></a>
+      </li>
+			<% @subcats=cat.subcats %>
+      <ul class="sub-menu collapse" id="<%= cat.category %>">
+				<% @subcats.each do |subcat| %>
+					<li><a href="#"><%= subcat.name %></a></li>
+				<% end %>
+			</ul>
+		<% end %>
+	</ul>
+</div>
