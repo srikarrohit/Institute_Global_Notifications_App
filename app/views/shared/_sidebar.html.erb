@@ -1,9 +1,21 @@
-<% @cats=Cat.all %>
+<% usercat=Usercat.find_by(user_id: getid) %>
+<% if !usercat.nil? %>
+	<% cats= usercat.categories %>
+	<% cats = cats.split(',') %>
+	<% cats.map!{ |c| c.to_i } %>
+	<% @cats=Array.new %>
+	<% cats.each do |cat| %>
+		<% c=Cat.find_by(id:cat) %>
+		<% @cats.push(c) %>
+	<% end %>	
+<% else %>
+	<% @cats=Cat.all %>
+<% end %>
 <div class="sidenav">
 	<ul id="menu-content" class="menu-content">
 		<li class="side-list"><a href="/" class="side-a active">All<span class="arrow"></span></a>
-			<% @cats.each do |cat| %>
-			<li data-toggle="collapse" data-target="#<%= cat.category %>" class="collapsed side-list"><a href="/tags/<%= cat.id %>" class="side-a"><%= cat.category %><span class="arrow"></span></a>
+	<% @cats.each do |cat| %>
+			<li data-toggle="collapse" data-target="#<%= cat.category %>" class="collapsed side-list"><a href="/tags/<%= cat.category %>" class="side-a"><%= cat.category %><span class="arrow"></span></a>
       </li>
 			<% @subcats=cat.subcats %>
       <ul class="sub-menu collapse" id="<%= cat.category %>">

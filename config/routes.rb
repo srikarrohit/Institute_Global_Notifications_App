@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 #	resources :comments
   resources :oauth
 	resources :tags, only: [:show]
+#	match '/:id', :to => "tags#show", :as => :category, :via => :get 
+# one can use category name as param
 	get 'login'=> 'oauth#index'
   delete 'logout'=>'oauth#signout'
 #  post 'login'=> 'sessions#create'

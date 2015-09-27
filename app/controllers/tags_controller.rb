@@ -24,7 +24,7 @@ class TagsController < ApplicationController
 		end
   end
 	def show
-		@cat=Cat.find(params[:id])
+		@cat=Cat.find_by(category: params[:id])
 		@posts=Post.all
     file=File.read("public/users.json")
     data_hash = JSON.parse(file)
