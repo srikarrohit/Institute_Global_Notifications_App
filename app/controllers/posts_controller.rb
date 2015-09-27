@@ -50,9 +50,14 @@ class PostsController < ApplicationController
 						file=File.read("public/users.json")
 						data_hash = JSON.parse(file)
 						f=File.open("public/users.json","w")
-						data_hash.each do |data|
+						datahash=data_hash["students"]
+						datahash.each do |data|
 							notiftostring=@notif.id
-							initial = data["notifids"].to_s
+							if data["notifids"] != ""
+								initial = data["notifids"].to_s
+							else
+								initial=""
+							end
 							new = notiftostring.to_s
 							if initial.empty?
 								data["notifids"] = new
@@ -60,6 +65,7 @@ class PostsController < ApplicationController
 								data["notifids"] = initial + "," + new
 							end
 						end
+						data_hash["students"]=datahash
 						data_hash=data_hash.to_json
 						f.write(data_hash)
 					end
@@ -68,9 +74,14 @@ class PostsController < ApplicationController
 				file=File.read("public/users.json")
 				data_hash = JSON.parse(file)
 				f = File.open("public/users.json","w")
-				data_hash.each do |data|
+				datahash=data_hash["students"]
+				datahash.each do |data|
 					notiftostring=@notif.id
-					initial = data["notifids"].to_s
+					if data["notifids"] != ""
+						initial = data["notifids"].to_s
+					else
+						initial=""
+					end
 					new = notiftostring.to_s
 					if initial.empty?
 						data["notifids"] = new
@@ -78,6 +89,7 @@ class PostsController < ApplicationController
 						data["notifids"] = initial + "," + new
 					end
 				end
+				data_hash["students"]=datahash
 				data_hash=data_hash.to_json
 				f.write(data_hash)
 			end

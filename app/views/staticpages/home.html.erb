@@ -3,37 +3,9 @@
 <%= render 'shared/login' %>	
 	</div>
 <% else %>
-<% if logged_in? %>
 	<%= render 'shared/sidebar' %>	
 <!--		<div class="col-md-4">
 			<div id="calendar"></div>
 		</div>-->
 <% end %>
-<div class="notifs container-fluid">
-	<% if !@notifs.nil? && !@notifs.empty? %>
-			<div class="col-md-7 ntif">
-				<%= render :partial => 'notif',:locals=>{notifs: @notifs} %>
-			</div>
-	<% end %>
-<% end %>
-	<div class="modal fade" id="postModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">-</h4>
-        </div>
-        <div class="modal-body">
-         <p> </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-	</div>
 <%= javascript_include_tag "staticpages" %>

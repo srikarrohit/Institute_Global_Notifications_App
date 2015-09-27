@@ -119,8 +119,8 @@ html{
 }
 
 body{
-    height: 100%;
-    margin: 0;
+	height: 100%;
+	margin: 0;
 	background-color:#ecf0f1;
 }
 
@@ -195,7 +195,7 @@ background-color:#fcf8e3!important;
 }
 .notificationblock
 {
-min-height:40vh;
+min-height:130px;
 border:1px solid #bdc3c7;;
 margin-bottom:2vh;
 //background-color:white;
@@ -283,7 +283,33 @@ padding:1px 0px 1px 4px;
 
 .sidenav{
 position:fixed;
-left:0px;
-top:60px;
+top:80px;
+left:7%;
+//padding-right:10px;
+//border-right:1px solid #2C3E50;
 }
 
+.side-list,.side-sublist{
+list-style-type:none;
+}
+
+.side-a,.side-b{
+color:#2C3E50;
+}
+
+.side-a:hover,.side-b:hover,.side-a:active,.side-b:active{
+text-decoration:none;
+color:#2C3E50;
+}
+
+.active{
+font-weight:bold;
+}
+
+.side-list{
+padding:5px 0px 0px 0px;
+}
+
+.notifs{
+margin-left:18%;
+}

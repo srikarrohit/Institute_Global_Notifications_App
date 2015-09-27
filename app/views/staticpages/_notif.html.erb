@@ -1,8 +1,9 @@
-<% notifs= @notifs %>
 <% notifs = notifs.split(',') %>
 <% notifs.map!{ |c| c.to_i } %>
 <% notifs.each do |notif| %>
-<% notifdetails = Notification.find_by(id: notif) %>
+<% notifdetails = Notification.where(id: notif) %>
+<% if !notifdetails.empty? %>
+<% notifdetails = notifdetails[0] %>
 <% if getid != notifdetails.user_id %>
 	<% post = Post.find_by(id: notifdetails.post_id) %>
 	<% li_id=[getid,notifdetails.id] %>
@@ -10,9 +11,7 @@
 	<!--<li id='<%= li_id %>'><%= link_to notifdetails.message, post_path(post) %></li>-->
 	<div class="col-md-4 col-lg-4  post-<%= notif%>">
 	<div class="notificationblock">
-<!--	<h2><i class="fa fa-envelope-o"></i></h2>-->
 			<div id="notificationheader">
-					<%= image_tag(post.cat.image,:class=>"pics") %>
 					<span id="headertext"><%= post.cat.category %></span>
 					<% @n=notif %>
 					<%= form_tag("/notif", remote: true, method:"post") do %>
@@ -27,8 +26,9 @@
 		  			and ends at <%= post.todate %></p>
 		  		<%end%>	
 		 		  <%= link_to 'Read more',post_path(:id => post.id.to_s+"@"), :remote => true, "data-toggle" => "modal", "data-target" => "#postModal"%>	
-	</div>
+			</div>
 		</div>
+<% end %>
 <% end %>
 <% end %>
 <%= javascript_include_tag "staticpages" %>

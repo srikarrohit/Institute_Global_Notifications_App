@@ -77,3 +77,15 @@ function destroy(x,y){
 		console.log(sdata);
 		http.send(sdata);
 	}
+$(".side-a").click(function(){
+	$(".side-a").removeClass("active");
+	$(this).addClass("active");
+});
+$(".side-b").click(function(){
+	$(".side-b").removeClass("active");
+	$(this).addClass("active");
+});
+
+//$(".active").click(function(){
+//	$(this).removeClass("active");
+//});

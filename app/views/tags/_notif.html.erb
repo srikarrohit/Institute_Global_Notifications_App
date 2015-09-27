@@ -1,0 +1,33 @@
+<% notifs = notifs.split(',') %>
+<% notifs.map!{ |c| c.to_i } %>
+<% notifs.each do |notif| %>
+<% notifdetails = Notification.where(id: notif).where(cat_id: @cat.id) %>
+<% if !notifdetails.empty? %>
+<% notifdetails=notifdetails[0] %>
+<% if getid != notifdetails.user_id %>
+  <% post = Post.find_by(id: notifdetails.post_id) %>
+  <% li_id=[getid,notifdetails.id] %>
+  <% li_id=li_id.join %>
+  <!--<li id='<%= li_id %>'><%= link_to notifdetails.message, post_path(post) %></li>-->
+  <div class="col-md-4 col-lg-4  post-<%= notif%>">
+  <div class="notificationblock">
+      <div id="notificationheader">
+          <span id="headertext"><%= post.cat.category %></span>
+          <% @n=notif %>
+          <%= form_tag("/notif", remote: true, method:"post") do %>
+          <%= text_field_tag :notif,@n,class: 'tfield' %>
+          <%= submit_tag("gone", id: "submit") %></div>
+          <% end %>
+          <% if post.date %>
+            <p>Event date <%=post.date %></p>
+          <% end %>
+          <% if post.fromdate and post.todate %>
+  				<p>Event starts from <%=post.fromdate %>
+            and ends at <%= post.todate %></p>
+          <%end%>
+          <%= link_to 'Read more',post_path(:id => post.id.to_s+"@"), :remote => true, "data-toggle" => "modal", "data-target" => "#postModal"%>
+      </div>
+    </div>
+<% end %>
+<% end %>
+<% end %>

@@ -1,0 +1,8 @@
+<% if !logged_in? %>
+  <div class="container">
+<%= render 'shared/login' %>
+  </div>
+<% else %>
+  <%= render 'shared/sidebar' %>  
+<% end %>
+

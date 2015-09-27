@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 	resources :posts 
 #	resources :comments
   resources :oauth
+	resources :tags, only: [:show]
 	get 'login'=> 'oauth#index'
   delete 'logout'=>'oauth#signout'
 #  post 'login'=> 'sessions#create'
